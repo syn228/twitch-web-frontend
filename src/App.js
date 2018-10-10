@@ -3,8 +3,8 @@ import './App.css';
 import { Route, BrowserRouter as Router, withRouter, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Following from './components/Following'
-import Browse from './components/Following'
-import Store from './components/Following'
+import Browse from './components/Browse'
+import Store from './components/Store'
 
 
 
@@ -23,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
