@@ -1,34 +1,40 @@
-import React, { Component } from 'react';
+import React from "react";
+import Sidebar from "react-sidebar";
 
-class Sidebar extends Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarOpen: true
+    };
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  onSetSidebarOpen(open) {
+    this.setState({ sidebarOpen: open });
+  }
+
   render() {
     return (
-      <div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h4>Followed Channels</h4>
-            <p>Admiral Bahroo!</p>
-            <a href="#">Show More</a>
-        </div>
-
-        <div class="sidebar-header">
-        <h4>Recommended Channels</h4>
-        <p>Angrypug</p>
-            <a href="#">Show More</a>
-        </div>
-
-
+      <Sidebar
+        sidebar={
+          <div>
+        <h4>Followed Channel</h4>
+        <h4>Recommended Channel</h4>
         <h4>Online Friends</h4>
         <h4>Recommended Friends</h4>
-
-       
-        
-
-    </nav>
-  
-</div>
+          </div>
+        }
+        open={this.state.sidebarOpen}
+        onSetOpen={this.onSetSidebarOpen}
+        styles={{ sidebar: { background: "white" } }}
+      >
+        <button className="sidebar-button" onClick={() => this.onSetSidebarOpen(true)}>
+          {"<"}
+        </button>
+      </Sidebar>
     );
   }
 }
 
-export default Sidebar;
+export default App;

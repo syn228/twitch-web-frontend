@@ -18,7 +18,34 @@
   color: white;
 }
 
+.wrapper {
+  display: flex;
+  width: 100%;
+}
 
+.nav-heading {
+  color: white;
+}
+
+.nav {
+  background-color: rebeccapurple;
+  padding: 10px;
+}
+
+.sidebar-button { 
+  position: fixed;
+  top: 20%;
+}
+
+
+#sidebar {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -1;
+}
 
 .App-link {
   color: #61dafb;
