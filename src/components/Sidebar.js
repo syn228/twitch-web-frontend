@@ -27,6 +27,7 @@ class App extends React.Component {
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
+        trasitions={true}
         styles={{ sidebar: { background: "white" } }}
       >
         <button className="sidebar-button" onClick={() => this.onSetSidebarOpen(true)}>
