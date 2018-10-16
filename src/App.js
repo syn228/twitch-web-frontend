@@ -6,11 +6,22 @@ import Following from './components/Following'
 import Browse from './components/Browse'
 import Store from './components/Store'
 import Sidebar from './components/Sidebar'
+import Body from './components/Body'
+import Adapter from './components/Adapter'
 
 
 
 class App extends Component {
-  render() {
+  state = {
+    topStreams: "",
+  }
+
+  componentDidMount() {
+    Adapter.getStreams().then(r => r.json()).then(res => this.setState({topStreams: res})  )
+  }
+
+  render() {  
+    console.log(this.state.topStreams.data)  
     return (
     <Router>
       <div>
@@ -18,6 +29,7 @@ class App extends Component {
           <Navbar/>
         </div>
         <Sidebar/>
+        <Body topStreams={this.state.topStreams}/>
         <Switch>
           <div className="nav-heading">
           <Route exact path="/following" component={Following} />   
