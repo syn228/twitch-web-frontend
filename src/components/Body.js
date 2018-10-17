@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Grid, Image } from 'semantic-ui-react'
 
 class Body extends Component {
   replaceDimensions = (url) => {
     return url.replace(/{width}x{height}/gi, "300x150")
   }
+
 
   render() {
     return (
