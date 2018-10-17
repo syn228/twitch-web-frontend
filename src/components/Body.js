@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Body extends Component {
   replaceDimensions = (url) => {
-    return url.replace(/{width}x{height}/gi, "100x100")
+    return url.replace(/{width}x{height}/gi, "300x150")
   }
 
   render() {
