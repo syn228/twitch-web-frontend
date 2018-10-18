@@ -24,7 +24,7 @@ class App extends Component {
     console.log(this.state.topStreams.data)  
     return (
     <Router>
-      <div>
+      <div className="app">
         <div className="nav">
           <Navbar/>
         </div>

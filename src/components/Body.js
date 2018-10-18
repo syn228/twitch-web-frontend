@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, Image } from 'semantic-ui-react'
 
 class Body extends Component {
   replaceDimensions = (url) => {
@@ -10,16 +9,18 @@ class Body extends Component {
   render() {
     return (
       <div className="main-body">
+        <h1>Top Streams</h1>
+        <div className="grid-container">
         { this.props.topStreams !== "" 
         ? 
         this.props.topStreams.data.map( data => 
-          
-        <div>
+        <div className="stream-list">
           <p> {data.title}</p>
           <img src={this.replaceDimensions(data.thumbnail_url)} alt=""/>
         </div>) 
         : 
         null}
+        </div>
       </div>
     );
   }

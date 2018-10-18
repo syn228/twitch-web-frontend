@@ -2,8 +2,25 @@
   text-align: center;
 }
 
-.main-body {
+.app {
+  background-color: darkslateblue
+}
+
+.main-body{
   text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 200px;
+  grid-gap: 50px 40px;
+}
+
+.grid-container>div {
+  text-align: center;
+  padding:10px;
+  font-size: 15px;
 }
 
 .App-logo {
