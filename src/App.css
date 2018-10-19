@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.search-bar{
+  width: 19%;
+  position: absolute;
+  margin-left: 33%;
+  margin-top: -2%;
+  overflow: hidden;
+}
+
 .app {
   background-color: darkslateblue
 }

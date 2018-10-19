@@ -7,6 +7,7 @@ import Browse from './components/Browse'
 import Store from './components/Store'
 import Sidebar from './components/Sidebar'
 import Body from './components/Body'
+import Searchbar from './components/Searchbar'
 import Adapter from './components/Adapter'
 
 
