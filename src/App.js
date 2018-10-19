@@ -7,7 +7,7 @@ import Browse from './components/Browse'
 import Store from './components/Store'
 import Sidebar from './components/Sidebar'
 import Body from './components/Body'
-import Searchbar from './components/Searchbar'
+import Login from './components/Login'
 import Adapter from './components/Adapter'
 
 
@@ -36,6 +36,7 @@ class App extends Component {
           <Route exact path="/following" component={Following} />   
           <Route exact path="/browse" component={Browse} />   
           <Route exact path="/store" component={Store} />   
+          <Route exact path="/login" component={Login} />   
           </div>
         </Switch>
       </div>
