@@ -14,7 +14,7 @@ class Body extends Component {
         { this.props.topStreams !== "" 
         ? 
         this.props.topStreams.data.map( data => 
-        <div className="stream-list">
+        <div>
           <p> {data.title}</p>
           <img src={this.replaceDimensions(data.thumbnail_url)} alt=""/>
         </div>) 
