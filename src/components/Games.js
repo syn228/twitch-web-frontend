@@ -17,7 +17,7 @@ class Games extends Component {
   }
 
   replaceDimensions = (url) => {
-    return url.replace(/{width}x{height}/gi, "250x200")
+    return url.replace(/{width}x{height}/gi, "280x200")
   }
   
   render() {
