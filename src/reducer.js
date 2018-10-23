@@ -1,4 +1,6 @@
 const defaultState = {
+  topStreams: "",
+  topGames: ""
 }
 
 function reducer(state=defaultState, action){
