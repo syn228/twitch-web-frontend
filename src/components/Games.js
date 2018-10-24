@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
+import { connect } from 'react-redux'
 
 class Games extends Component {
   state = {
@@ -41,4 +42,10 @@ class Games extends Component {
   }
 }
 
-export default Games;
+function mapStateToProps(state){
+  return {
+  topGames: state.topGames
+  }
+}
+
+export default connect(mapStateToProps)(Games);
