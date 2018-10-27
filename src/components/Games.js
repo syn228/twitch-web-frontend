@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
 import { connect } from 'react-redux'
+import { getGames } from "../actions"
 
 class Games extends Component {
-  state = {
-    games: ""
-  }
 
   componentDidMount() {
     Adapter.getGames()
     .then(r => r.json())
     .then(res => 
-      this.setState({
-        games: res
-      })
+      this.props.getGames(res)
     )
   }
 
@@ -22,14 +18,13 @@ class Games extends Component {
   }
   
   render() {
-    console.log("games", this.state.games)
     return (
       <div>
         <h1 style={{textAlign: "center"}}>Top Games</h1>
         <div className="grid-container">
-        { this.state.games !== "" 
+        { this.props.topGames.length > 0 
         ? 
-        this.state.games.data.map( data => 
+        this.props.topGames.map( data => 
         <div>
           <p> {data.name}</p>
           <img src={this.replaceDimensions(data.box_art_url)} alt=""/>
@@ -48,4 +43,12 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(Games);
+function mapDispatchToProps(dispatch) {
+  return {
+    getGames: (json) => dispatch(getGames(json))
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps )(Games);
