@@ -8,19 +8,10 @@ import Games from './components/Games'
 import Sidebar from './components/Sidebar'
 import Body from './components/Body'
 import Login from './components/Login'
-import Adapter from './components/Adapter'
 
 class App extends Component {
-  state = {
-    topStreams: "",
-  }
-
-  componentDidMount() {
-    Adapter.getStreams().then(r => r.json()).then(res => this.setState({topStreams: res})  )
-  }
 
   render() {  
-    console.log(this.state.topStreams.data)  
     return (
     <Router>
       <div className="app">
@@ -28,7 +19,7 @@ class App extends Component {
           <Navbar/>
         </div>
         <Sidebar/>
-        <Body topStreams={this.state.topStreams}/>
+        <Body/>
         <Switch>
           <div className="nav-heading">
           <Route exact path="/following" component={Following} />   

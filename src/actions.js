@@ -6,3 +6,10 @@ export function getGames(json){
       event: json
     }
 }
+
+export function getStreams(json){
+  return  {
+    type: "GET_STREAMS",
+    event: json
+  }
+}
