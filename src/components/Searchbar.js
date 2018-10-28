@@ -5,6 +5,7 @@ export default class ReactView extends React.Component {
   state = {
     searchValue: ""
   }
+  
   render() {
     return (
       <div className="search-bar">

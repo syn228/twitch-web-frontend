@@ -4,6 +4,14 @@ import { connect } from 'react-redux'
 import { getStreams } from "../actions"
 
 class Body extends Component {
+  state = {
+    hover: false,
+  }
+
+  toggleHover = () =>{
+    this.setState({hover: !this.state.hover})
+  }
+
   replaceDimensions = (url) => {
     return url.replace(/{width}x{height}/gi, "300x150")
   }
@@ -13,6 +21,11 @@ class Body extends Component {
     .then(r => r.json())
     .then(res => this.props.getStreams(res) )
   }
+
+  handleClick = (event) => {
+    window.location.replace(`http://twitch.tv/${event.target.alt}`);
+  }
+  
 
   render() {
     console.log(this.props.topStreams)
@@ -25,7 +38,7 @@ class Body extends Component {
         this.props.topStreams.map( data => 
         <div>
           <p> {data.title}</p>
-          <img src={this.replaceDimensions(data.thumbnail_url)} alt=""/>
+          <img style={{cursor: "pointer"}} onClick={this.handleClick} src={this.replaceDimensions(data.thumbnail_url)} alt={data.user_name}/>
         </div>) 
         : 
         null}
