@@ -6,6 +6,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="nav-bar">
+        <NavLink style={{marginRight: "10px", color: "white", fontWeight: "bold"}} exact to="/main" >Home</NavLink>
         <NavLink style={{marginRight: "10px", color: "white", fontWeight: "bold"}} exact to="/following" >Following</NavLink>
         <NavLink style={{marginRight: "10px", color: "white", fontWeight: "bold"}} exact to="/browse">Browse</NavLink>
         <NavLink style={{marginRight: "10px", color: "white", fontWeight: "bold"}} exact to="/games">Games</NavLink>

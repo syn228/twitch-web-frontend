@@ -19,9 +19,9 @@ class App extends Component {
           <Navbar/>
         </div>
         <Sidebar/>
-        <Body/>
         <Switch>
           <div className="nav-heading">
+          <Route exact path="/main" component={Body} />   
           <Route exact path="/following" component={Following} />   
           <Route exact path="/browse" component={Browse} />   
           <Route exact path="/games" component={Games} />   

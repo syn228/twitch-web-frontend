@@ -4,14 +4,6 @@ import { connect } from 'react-redux'
 import { getStreams } from "../actions"
 
 class Body extends Component {
-  state = {
-    hover: false,
-  }
-
-  toggleHover = () =>{
-    this.setState({hover: !this.state.hover})
-  }
-
   replaceDimensions = (url) => {
     return url.replace(/{width}x{height}/gi, "300x150")
   }

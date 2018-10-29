@@ -4,13 +4,16 @@ import { connect } from 'react-redux'
 import { getGames } from "../actions"
 
 class Games extends Component {
-
   componentDidMount() {
     Adapter.getGames()
     .then(r => r.json())
     .then(res => 
       this.props.getGames(res)
     )
+  }
+
+  handleClick = (event) => {
+    window.location.replace(`http://twitch.tv/directory/game/${event.target.alt}`);
   }
 
   replaceDimensions = (url) => {
@@ -27,7 +30,7 @@ class Games extends Component {
         this.props.topGames.map( data => 
         <div>
           <p> {data.name}</p>
-          <img src={this.replaceDimensions(data.box_art_url)} alt=""/>
+          <img style={{cursor: "pointer"}} onClick={this.handleClick} src={this.replaceDimensions(data.box_art_url)} alt={data.name}/>
         </div>) 
         : 
         null}
