@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
+import Games from './Games'
 import { connect } from 'react-redux'
 import { getStreams } from "../actions"
+
 
 class Body extends Component {
   replaceDimensions = (url) => {
@@ -35,6 +37,7 @@ class Body extends Component {
         : 
         null}
         </div>
+        <Games />
       </div>
     );
   }

@@ -12,8 +12,19 @@ class Adapter {
     return fetch(URL, config)
   }
 
-  static getGames(){
+  static getTopGames(){
     let URL = "https://api.twitch.tv/helix/games/top?first=10"
+    let config =  {
+      method:'GET',
+      headers:{
+          'Client-ID':`${CLIENT_ID}`,
+              },
+      }
+      return fetch(URL, config)
+  }
+
+  static getGames(){
+    let URL = "https://api.twitch.tv/helix/games/top?first=25"
     let config =  {
       method:'GET',
       headers:{

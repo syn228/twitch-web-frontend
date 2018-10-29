@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
 import { connect } from 'react-redux'
-import { getGames } from "../actions"
+import { getTopGames } from "../actions"
 
 class Games extends Component {
   componentDidMount() {
-    Adapter.getGames()
+    Adapter.getTopGames()
     .then(r => r.json())
     .then(res => 
-      this.props.getGames(res)
+      this.props.getTopGames(res)
     )
   }
 
@@ -48,7 +48,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
   return {
-    getGames: (json) => dispatch(getGames(json))
+    getTopGames: (json) => dispatch(getTopGames(json))
   }
 }
 
