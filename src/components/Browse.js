@@ -17,7 +17,7 @@ class Browse extends Component {
   }
 
   replaceDimensions = (url) => {
-    return url.replace(/{width}x{height}/gi, "280x200")
+    return url.replace(/{width}x{height}/gi, "300x200")
   }
   
   render() {
