@@ -8,6 +8,7 @@ import Channel from './components/Channel'
 import Games from './components/Games'
 import Sidebar from './components/Sidebar'
 import Body from './components/Body'
+import GameStreams from './components/GameStreams'
 import Login from './components/Login'
 
 class App extends Component {
@@ -24,9 +25,10 @@ class App extends Component {
           <div className="nav-heading">   
           <Route exact path="/main" component={(props) => <Body {...props} />} />   
           <Route exact path="/following" component={Following} />   
-          <Route exact path="/browse" component={Browse} />   
+          <Route exact path="/browse" component={(props) => <Browse {...props} />} />   
           <Route exact path="/games" component={Games} />   
           <Route exact path="/channel" component={Channel} />
+          <Route exact path="/gamestreams" component={GameStreams} />
           <Route exact path="/login" component={Login} />   
           </div>
         </Switch>

@@ -27,3 +27,17 @@ export function setCurrentChannel(channelID){
     event: channelID
   }
 }
+
+export function gameStreamDisplay(gameID){
+  return  {
+    type: "GAME_STREAM_DISPLAY",
+    event: gameID
+  }
+}
+
+export function displayConfirm(json){
+  return  {
+    type: "GAME_DISPLAY_CONFIRM",
+    event: json
+  }
+}

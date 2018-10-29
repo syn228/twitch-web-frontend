@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
 import { connect } from 'react-redux'
-import { getGames } from "../actions"
+import { getGames, gameStreamDisplay } from "../actions"
 
 class Browse extends Component {
   componentDidMount() {
@@ -13,7 +13,8 @@ class Browse extends Component {
   }
 
   handleClick = (event) => {
-    window.location.replace(`http://twitch.tv/directory/game/${event.target.alt}`);
+    this.props.gameStreamDisplay(event.target.alt)
+    this.props.history.push("gamestreams");
   }
 
   replaceDimensions = (url) => {
@@ -30,7 +31,7 @@ class Browse extends Component {
         this.props.games.map( data => 
         <div>
           <p> {data.name}</p>
-          <img style={{cursor: "pointer"}} onClick={this.handleClick} src={this.replaceDimensions(data.box_art_url)} alt={data.name}/>
+          <img style={{cursor: "pointer"}} onClick={this.handleClick} src={this.replaceDimensions(data.box_art_url)} alt={data.id}/>
         </div>) 
         : 
         null}
@@ -48,7 +49,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
   return {
-    getGames: (json) => dispatch(getGames(json))
+    getGames: (json) => dispatch(getGames(json)),
+    gameStreamDisplay: (id) => dispatch(gameStreamDisplay(id))
   }
 }
 

@@ -33,6 +33,17 @@ class Adapter {
       }
       return fetch(URL, config)
   }
+
+  static getGameStreams(gameID){
+    let URL = `https://api.twitch.tv/helix/streams?first=20&game_id=${gameID}`
+    let config =  {
+    method:'GET',
+    headers:{
+        'Client-ID':`${CLIENT_ID}`,
+            },
+    }
+    return fetch(URL, config)
+  }
 }
 
 export default Adapter
