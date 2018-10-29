@@ -20,3 +20,10 @@ export function getTopStreams(json){
     event: json
   }
 }
+
+export function setCurrentChannel(channelID){
+  return  {
+    type: "SET_CHANNEL_ID",
+    event: channelID
+  }
+}
