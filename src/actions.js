@@ -14,9 +14,9 @@ export function getGames(json){
   }
 }
 
-export function getStreams(json){
+export function getTopStreams(json){
   return  {
-    type: "GET_STREAMS",
+    type: "GET_TOP_STREAMS",
     event: json
   }
 }

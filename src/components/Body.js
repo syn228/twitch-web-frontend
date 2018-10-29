@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Adapter from './Adapter'
 import Games from './Games'
 import { connect } from 'react-redux'
-import { getStreams } from "../actions"
+import { getTopStreams } from "../actions"
 
 
 class Body extends Component {
@@ -11,20 +11,27 @@ class Body extends Component {
   }
 
   componentDidMount() {
-    Adapter.getStreams()
+    Adapter.getTopStreams()
     .then(r => r.json())
-    .then(res => this.props.getStreams(res) )
+    .then(res => this.props.getTopStreams(res) )
   }
 
   handleClick = (event) => {
     window.location.replace(`http://twitch.tv/${event.target.alt}`);
   }
-  
 
   render() {
     console.log(this.props.topStreams)
     return (
       <div className="main-body">
+        <iframe
+            src="https://player.twitch.tv/?channel=admiralbahroo&muted=false"
+            height="300"
+            width="400"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen="true">
+        </iframe>
         <h1>Top Streams</h1>
         <div className="grid-container">
         { this.props.topStreams.length > 0
@@ -51,7 +58,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
   return {
-    getStreams: (json) => dispatch(getStreams(json))
+    getTopStreams: (json) => dispatch(getTopStreams(json))
   }
 }
 

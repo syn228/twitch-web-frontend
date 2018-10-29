@@ -10,7 +10,7 @@ function reducer(state=defaultState, action){
       return {...state, topGames: action.event.data}
     case "GET_GAMES":
       return {...state, games: action.event.data}
-    case "GET_STREAMS":
+    case "GET_TOP_STREAMS":
       return {...state, topStreams: action.event.data}
   default:
     return state
