@@ -1,23 +1,23 @@
 import Adapter from './components/Adapter'
 
-export function getTopGames(json){
+export function getTopGames(topGameObjects){
     return  {
       type: "GET_TOP_GAMES",
-      event: json
+      event: topGameObjects
     }
 }
 
-export function getGames(json){
+export function getGames(gameObjects){
   return  {
     type: "GET_GAMES",
-    event: json
+    event: gameObjects
   }
 }
 
-export function getTopStreams(json){
+export function getTopStreams(topStreamObjects){
   return  {
     type: "GET_TOP_STREAMS",
-    event: json
+    event: topStreamObjects
   }
 }
 
@@ -34,13 +34,13 @@ export function gameStreamDisplay(gameID){
   return  (dispatch) => {
     Adapter.getGameStreams(gameID)
     .then(response => response.json())
-    .then(json => dispatch(displayConfirm(json)))
+    .then(data => dispatch(displayConfirm(data)))
   }
 }
 
-export function displayConfirm(json){
+export function displayConfirm(streamObjects){
   return  {
     type: "GAME_DISPLAY_CONFIRM",
-    event: json
+    event: streamObjects
   }
 }
