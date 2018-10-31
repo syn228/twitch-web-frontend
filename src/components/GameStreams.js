@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Adapter from './Adapter'
 import { connect } from 'react-redux'
 import { displayConfirm, setCurrentChannel } from '../actions'
 
