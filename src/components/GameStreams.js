@@ -24,6 +24,7 @@ class GameStreams extends Component {
         <div>
           <p> {data.title}</p>
           <img style={{cursor: "pointer"}} onClick={this.handleClick} src={this.replaceDimensions(data.thumbnail_url)} alt={data.user_name}/>
+          <p> {data.viewer_count} viewers</p>
         </div>) 
         : 
         null}
