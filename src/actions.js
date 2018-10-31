@@ -29,9 +29,10 @@ export function setCurrentChannel(channelID){
 }
 
 export function gameStreamDisplay(gameID){
-  return  {
-    type: "GAME_STREAM_DISPLAY",
-    event: gameID
+  return  (dispatch) => {
+    Adapter.getGameStreams(gameID)
+    .then(r => r.json())
+    .then(json => dispatch(displayConfirm(json)))
   }
 }
 

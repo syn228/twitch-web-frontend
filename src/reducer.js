@@ -3,7 +3,6 @@ const defaultState = {
   topGames: [],
   games: [],
   currentChannelID: "",
-  gameID: "",
   gameDisplay: [],
 }
 
@@ -17,8 +16,6 @@ function reducer(state=defaultState, action){
       return {...state, topStreams: action.event.data}
     case "SET_CHANNEL_ID":
       return {...state, currentChannelID: action.event}
-    case "GAME_STREAM_DISPLAY":
-      return {...state, gameID: action.event}
     case "GAME_DISPLAY_CONFIRM":
       return {...state, gameDisplay: action.event.data}
   default:

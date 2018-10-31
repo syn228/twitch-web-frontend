@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
 import { connect } from 'react-redux'
-import { displayConfirm } from '../actions'
+import { displayConfirm, setCurrentChannel } from '../actions'
 
 class GameStreams extends Component {
-  state = {
-    streams: []
+  replaceDimensions = (url) => {
+    return url.replace(/{width}x{height}/gi, "300x150")
   }
 
-  componentDidMount() {
-    Adapter.getGameStreams(this.props.gameID)
-    .then(r => r.json())
-    .then( res => displayConfirm(res))
+  handleClick = (event) => {
+    //Send the channelID to redux for state storage
+    this.props.setCurrentChannel(event.target.alt)
+    this.props.history.push("channel");
   }
 
   render() {
-    debugger
     return (
       <div>
         <div className="grid-container">
@@ -35,7 +34,6 @@ class GameStreams extends Component {
 }
 function mapStateToProps(state){
   return {
-  gameID: state.gameID,
   gameDisplay: state.gameDisplay
   }
 }
@@ -43,6 +41,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
   return {
     displayConfirm: (json) => dispatch(displayConfirm(json)),
+    setCurrentChannel: (channelID) => dispatch(setCurrentChannel(channelID))
   }
 }
 
