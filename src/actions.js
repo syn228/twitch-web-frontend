@@ -29,9 +29,11 @@ export function setCurrentChannel(channelID){
 }
 
 export function gameStreamDisplay(gameID){
+  //Dispatch is available through thunk. 
+  //This ensures that the stream objects are ready when GameStreams page is rendered.
   return  (dispatch) => {
     Adapter.getGameStreams(gameID)
-    .then(r => r.json())
+    .then(response => response.json())
     .then(json => dispatch(displayConfirm(json)))
   }
 }

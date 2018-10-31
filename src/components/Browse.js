@@ -6,13 +6,14 @@ import { getGames, gameStreamDisplay } from "../actions"
 class Browse extends Component {
   componentDidMount() {
     Adapter.getGames()
-    .then(r => r.json())
+    .then(response => response.json())
     .then(res => 
       this.props.getGames(res)
     )
   }
 
   handleClick = (event) => {
+    //Send the user to the page with streamers of selected game
     this.props.gameStreamDisplay(event.target.alt)
     this.props.history.push("gamestreams");
   }

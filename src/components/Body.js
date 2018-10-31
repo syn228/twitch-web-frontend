@@ -12,7 +12,7 @@ class Body extends Component {
 
   componentDidMount() {
     Adapter.getTopStreams()
-    .then(r => r.json())
+    .then(response => response.json())
     .then(res => this.props.getTopStreams(res) )
   }
 

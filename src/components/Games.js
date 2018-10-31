@@ -6,7 +6,7 @@ import { getTopGames } from "../actions"
 class Games extends Component {
   componentDidMount() {
     Adapter.getTopGames()
-    .then(r => r.json())
+    .then(response => response.json())
     .then(res => 
       this.props.getTopGames(res)
     )
