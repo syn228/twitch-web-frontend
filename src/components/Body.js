@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter'
-import Games from './Games'
 import { connect } from 'react-redux'
 import { getTopStreams, setCurrentChannel } from "../actions"
 
@@ -39,7 +38,6 @@ class Body extends Component {
         : 
         null}
         </div>
-        <Games />
       </div>
     );
   }
