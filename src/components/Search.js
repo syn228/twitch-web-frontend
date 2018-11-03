@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '@opuscapita/react-searchbar';
 
-export default class ReactView extends React.Component {
+export default class Search extends React.Component {
   state = {
     searchValue: ""
   }
